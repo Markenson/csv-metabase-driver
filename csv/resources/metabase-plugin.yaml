@@ -1,0 +1,25 @@
+info:
+  name: Metabase CSV Driver
+  version: 1.0.0-SNAPSHOT
+  description: Allows Metabase to connect to CSV files.
+driver:
+  name: csv
+  display-name: CSV
+  lazy-load: true
+  parent: sql-jdbc
+  connection-properties:
+    - name: csv
+      display-name: Filename
+      placeholder: /mnt/dados-exportados/arquivo.csv
+      required: true
+    - name: separator
+      display-name: Separator
+    - name: charset
+      display-name: Charset
+    - name: advanced
+      display-name: Advanced
+init:
+  - step: load-namespace
+    namespace: metabase.driver.csv
+  - step: register-jdbc-driver
+    class: org.relique.jdbc.csv.CsvDriver
