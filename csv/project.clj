@@ -4,7 +4,7 @@
   :repositories [
   ["csvjdbc4metabase" {
     :url "https://maven.pkg.github.com/Markenson/csvjdbc4metabase",
-	:password "672fece31cd8c83673b2ca364236f6fd71c8e2fb", ;public read-only token
+	:password "ae93cca0f94110de643e30ef815b95bc3485630d", ;public read-only token
 	:username "markenson"
 	}
 	]
