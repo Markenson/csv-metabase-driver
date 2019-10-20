@@ -7,4 +7,15 @@ Put [this file](https://github.com/Markenson/csv-metabase-driver/raw/master/rele
 # How to configure it
 Check [this](https://github.com/Markenson/csv-metabase-driver/issues/1) for more information.
 
+# If you need built it
+
+[Install lein](https://leiningen.org)
+
+git clone https://github.com/Markenson/csv-metabase-driver.git
+
+cd csv-metabase-driver/csv
+
+lein install
+
+get the build at csv-metabase-driver/csv/target
 
