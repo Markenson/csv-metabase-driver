@@ -18,7 +18,6 @@
              [sync :as sql-jdbc.sync]]
             [metabase.driver.sql.query-processor :as sql.qp]
             [metabase.util
-             [date :as du]
              [honeysql-extensions :as hx]]
             [schema.core :as s])
   (:import [java.sql Time Timestamp]))
