@@ -29,8 +29,21 @@
 (def ^:private database-type->base-type
   (sql-jdbc.sync/pattern-based-database-type->base-type
     [
-     [#"String"     :type/Text]
-    ]))
+     [#"String"         :type/Text]
+     [#"Asciistream"    :type/Text]
+     [#"BigDecimal"     :type/Decimal]
+     [#"Boolean"        :type/Boolean]
+     [#"Byte"           :type/Byte]
+     [#"Date"           :type/Date]
+     [#"Double"         :type/Float]
+     [#"Float"          :type/Float]
+     [#"Integer"        :type/Integer]
+     [#"Long"           :type/BigInteger]
+     [#"Short"          :type/Integer]
+     [#"String"         :type/String]
+     [#"Timestamp"      :type/DateTime]
+     [#"Time"           :type/Time]
+   ]))
 
 (defn week-of-year
   [date]
