@@ -63,13 +63,21 @@
 (defmethod sql-jdbc.sync/database-type->base-type :csv [_ database-type]
   (database-type->base-type database-type))
 
+
+(defn is-http [path]  (if (clojure.string/starts-with? (clojure.string/lower-case path) "http") true false))
+
 (defmethod sql-jdbc.conn/connection-details->spec :csv [_ {:keys [csv separator charset advanced]
                                                               :or   {csv "arquivo.csv"}
                                                               :as   details}]
-(merge {:classname   "org.relique.jdbc.csv.CsvDriver"
-        :subprotocol "relique:csv"
-        :subname     (str csv "?separator=" separator "&charset=" charset advanced)
- }
-         (dissoc details :csv :separator :charset :advanced))
 
+(def strHttp (if (is-http csv) ":class:br.markenson.com.csvjdbc4metabase.readers.HttpCSVReader" ""))
+
+(def customBaseUrl (if (is-http csv) (str "&customBaseUrl=" csv) ""))
+
+(merge {:classname   "org.relique.jdbc.csv.CsvDriver"
+        :subprotocol (str "relique:csv" strHttp)
+        :subname     (str (if (is-http csv) "" csv) "?separator=" separator "&charset=" charset customBaseUrl advanced)
+ }
+         (dissoc details :csv :separator :charset :customBaseUrl :advanced))  
+  
 )
