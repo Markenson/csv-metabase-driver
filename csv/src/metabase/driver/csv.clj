@@ -24,8 +24,6 @@
   (:import [java.sql Time Timestamp]
 	   [java.util Calendar]))
 
-(driver/register! :csv, :parent :sql-jdbc)
-
 (def ^:private database-type->base-type
   (sql-jdbc.sync/pattern-based-database-type->base-type
     [
