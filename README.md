@@ -9,13 +9,14 @@ Check [how to load a CSV file by filesystem](https://github.com/Markenson/csv-me
 
 # If you need built it
 
-[Install lein](https://leiningen.org)
+## with ansible
 
-git clone https://github.com/Markenson/csv-metabase-driver.git
+follow [these instructions](https://github.com/Markenson/dev-env/blob/main/README.md#to-build-csv-metabase-driver)
 
-cd csv-metabase-driver/csv
+## by hand 
 
-lein install
+read and understand steps below
 
-get the build at csv-metabase-driver/csv/target
+[steps for install clojure](https://github.com/Markenson/dev-env/blob/main/roles/clojure/tasks/main.yaml)
 
+[steps for compile driver](https://github.com/Markenson/dev-env/blob/main/roles/csv-metabase-driver/tasks/main.yaml)
