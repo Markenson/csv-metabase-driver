@@ -3,7 +3,7 @@
 
   :repositories {"sonatype snapshots" "https://oss.sonatype.org/content/repositories/snapshots"}
   :dependencies
-  [[br.com.markenson/csvjdbc "1.2.0-metabase-SNAPSHOT"]]
+  [[br.com.markenson/csvjdbc "1.3.0-metabase-SNAPSHOT"]]
 
   :profiles
   {:provided
