@@ -1,7 +1,7 @@
 (defproject metabase/csv-driver "1.0.1-SNAPSHOT"
   :min-lein-version "2.5.0"
 
-  :repositories {"sonartype snapshots" "https://oss.sonatype.org/content/repositories/snapshots"}
+  :repositories {"sonatype snapshots" "https://oss.sonatype.org/content/repositories/snapshots"}
   :dependencies
   [[br.com.markenson/csvjdbc "1.2.0-metabase-SNAPSHOT"]]
 
