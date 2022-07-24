@@ -4,6 +4,8 @@ A CSV [metabase](https://www.metabase.com) driver based on incredible [csvjdbc](
 # Installation
 Put [this file](https://github.com/Markenson/csv-metabase-driver/releases/download/v1.3.1/csv.metabase-driver.jar) on your metabase/plugins directory and restart Metabase. You'll see a CSV driver option on database creation.
 
+You could see [this video](https://youtu.be/M4ccnTXiDtw) too.
+
 # How to configure it
 Check [how to load a CSV file by filesystem](https://github.com/Markenson/csv-metabase-driver/issues/1) and [how to load a CSV file by HTTP](https://github.com/Markenson/csv-metabase-driver/releases/tag/1.1.0) for more information.
 
