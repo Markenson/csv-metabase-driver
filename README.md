@@ -11,7 +11,7 @@ Check [how to load a CSV file by filesystem](https://github.com/Markenson/csv-me
 
 If your data contains **date values** check [this video](https://youtu.be/qrTux2jIwns).
 
-Maybe you could want to see [this one](https://youtu.be/pMiIXPaelyg) about data types.
+Maybe you want to see [this one](https://youtu.be/pMiIXPaelyg) about data types.
 
 # If you need built it
 
