@@ -9,6 +9,8 @@ You could see [this video](https://youtu.be/M4ccnTXiDtw) too.
 # How to configure it
 Check [how to load a CSV file by filesystem](https://github.com/Markenson/csv-metabase-driver/issues/1) and [how to load a CSV file by HTTP](https://github.com/Markenson/csv-metabase-driver/releases/tag/1.1.0) for more information.
 
+If tour data contains **date values** check [this video](https://youtu.be/qrTux2jIwns).
+
 # If you need built it
 
 ## with ansible
