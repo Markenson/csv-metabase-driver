@@ -3,9 +3,8 @@
              [coerce :as tcoerce]
              [format :as tformat]]
             [clojure.string :as str]
-            [honeysql
-             [core :as hsql]
-             [format :as hformat]]
+            [honey
+             [sql :as hsql]]
             [metabase
              [config :as config]
              [driver :as driver]]
@@ -19,7 +18,7 @@
             [metabase.driver.sql.query-processor :as sql.qp]
             [metabase.util
              [date-2 :as du]
-             [honeysql-extensions :as hx]]
+             [honey-sql-2 :as hx]]
             [schema.core :as s])
   (:import [java.sql Time Timestamp]
 	   [java.util Calendar]))
@@ -49,13 +48,13 @@
 		(.setTime cal (.toDate date))
 		(.get cal Calendar/WEEK_OF_YEAR)))
 
-(defmethod sql.qp/date [:csv :day]            	[_ _ expr] (hsql/call :substring expr 1 10))
-(defmethod sql.qp/date [:csv :month]            [_ _ expr] (hsql/call :substring expr 1 7))
-(defmethod sql.qp/date [:csv :year]            	[_ _ expr] (hsql/call :year expr))
-(defmethod sql.qp/date [:csv :second]           [_ _ expr] (hsql/call :substring expr 1 10))
-(defmethod sql.qp/date [:csv :minute]           [_ _ expr] (hsql/call :substring expr 1 16))
-(defmethod sql.qp/date [:csv :hour]            	[_ _ expr] (hsql/call :substring expr 1 13))
-(defmethod sql.qp/date [:csv :hour-of-day]      [_ _ expr] (hsql/call :substring expr 1 13))
+(defmethod sql.qp/date [:csv :day]            	[_ _ expr] [:substring expr 1 10]
+(defmethod sql.qp/date [:csv :month]            [_ _ expr] [:substring expr 1 7])
+(defmethod sql.qp/date [:csv :year]            	[_ _ expr] [:year expr])
+(defmethod sql.qp/date [:csv :second]           [_ _ expr] [:substring expr 1 10])
+(defmethod sql.qp/date [:csv :minute]           [_ _ expr] [:substring expr 1 16])
+(defmethod sql.qp/date [:csv :hour]            	[_ _ expr] [:substring expr 1 13])
+(defmethod sql.qp/date [:csv :hour-of-day]      [_ _ expr] [:substring expr 1 13])
 (defmethod sql.qp/date [:csv :week]             [_ _ expr] (:week-of-year expr))
 
 (defmethod sql-jdbc.sync/database-type->base-type :csv [_ database-type]
