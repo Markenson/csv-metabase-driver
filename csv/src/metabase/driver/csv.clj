@@ -18,7 +18,6 @@
              [sync :as sql-jdbc.sync]]
             [metabase.driver.sql.query-processor :as sql.qp]
             [metabase.util
-             [date-2 :as du]
              [honeysql-extensions :as hx]]
             [schema.core :as s])
   (:import [java.sql Time Timestamp]
@@ -64,18 +63,21 @@
 
 (defn is-http [path]  (if (clojure.string/starts-with? (clojure.string/lower-case path) "http") true false))
 
-(defmethod sql-jdbc.conn/connection-details->spec :csv [_ {:keys [csv separator charset advanced]
-                                                              :or   {csv "arquivo.csv"}
-                                                              :as   details}]
+(defmethod sql-jdbc.conn/connection-details->spec :csv 
+[_ {:keys [csv separator charset advanced]
+    :or   {csv "arquivo.csv"}
+    :as   details}]
 
-(def strHttp (if (is-http csv) ":class:br.markenson.com.csvjdbc4metabase.readers.HttpCSVReader" ""))
-
-(def customBaseUrl (if (is-http csv) (str "&customBaseUrl=" csv) ""))
+	(let [strHttp       (if (is-http csv) ":class:br.markenson.com.csvjdbc4metabase.readers.HttpCSVReader" "")
+	      customBaseUrl (if (is-http csv) (str "&customBaseUrl=" csv) "")]
 
 (merge {:classname   "org.relique.jdbc.csv.CsvDriver"
         :subprotocol (str "relique:csv" strHttp)
         :subname     (str (if (is-http csv) "" csv) "?separator=" separator "&charset=" charset customBaseUrl advanced)
  }
-         (dissoc details :csv :separator :charset :customBaseUrl :advanced))  
+         (dissoc details :csv :separator :charset :customBaseUrl :advanced)))  
   
 )
+
+(driver/register! :csv, :parent :sql-jdbc)
+
